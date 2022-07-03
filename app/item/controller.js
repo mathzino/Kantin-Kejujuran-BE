@@ -7,7 +7,7 @@ module.exports = {
   getItem: async (req, res) => {
     try {
       const item = await Item.find();
-      res.status(200).json({ item });
+      res.status(200).json({ data: { item } });
     } catch (err) {
       res.status(500).json({ message: err.message || "Internal server error" });
     }
