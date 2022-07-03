@@ -35,14 +35,10 @@ module.exports = {
               itemImage: fileName,
             });
             await item.save();
-            req.flash("alertMessage", "Berhasil Tambah item");
-            req.flash("alertStatus", "success");
             res.status(200).json({
               data: { item },
             });
           } catch (error) {
-            req.flash("alertMessage", `${error.message}`);
-            req.flash("alertStatus", `danger`);
             next(error);
           }
         });
@@ -53,12 +49,11 @@ module.exports = {
           price,
         });
         await item.save();
-        req.flash("alertMessage", "Berhasil Tambah item");
-        req.flash("alertStatus", "success");
+        res.status(200).json({
+          data: { item },
+        });
       }
     } catch (error) {
-      req.flash("alertMessage", `${error.message}`);
-      req.flash("alertStatus", `danger`);
       next(error);
     }
   },
@@ -99,12 +94,9 @@ module.exports = {
               }
             );
             item = await Item.findOne({ _id: id });
-            req.flash("alertMessage", "Berhasil Ubah item");
-            req.flash("alertStatus", "success");
-            res.status(200).json({ item });
+
+            res.status(200).json({ data: { item } });
           } catch (error) {
-            req.flash("alertMessage", `${error.message}`);
-            req.flash("alertStatus", `danger`);
             next(error);
           }
         });
@@ -119,15 +111,10 @@ module.exports = {
             price,
           }
         );
-
         const item = await Item.findOne({ _id: id });
-        req.flash("alertMessage", "Berhasil Ubah item");
-        req.flash("alertStatus", "success");
-        res.status(200).json({ item });
+        res.status(200).json({ data: { item } });
       }
     } catch (error) {
-      req.flash("alertMessage", `${error.message}`);
-      req.flash("alertStatus", `danger`);
       next(error);
     }
   },
