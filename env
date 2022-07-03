@@ -1,0 +1,4 @@
+MODE=DEV
+SERVICE_NAME=COMPFEST
+MONGO_URL=mongodb+srv://mazino:GdWf7QZaI1WImN0F@cluster0.tvilx.mongodb.net/compfest?retryWrites=true&w=majority
+SECRET=SECRET
