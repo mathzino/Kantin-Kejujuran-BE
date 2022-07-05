@@ -14,7 +14,7 @@ module.exports = {
   },
   actionCreate: async (req, res, next) => {
     try {
-      console.log("param:", req.params);
+      console.log("file:", req.file);
       const { itemName, desc, price } = req.body;
       if (req.file) {
         let tmp_path = req.file.path;

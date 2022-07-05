@@ -1,6 +1,17 @@
 const Balance = require("./model");
 
 module.exports = {
+  getBalance: async (req, res, next) => {
+    try {
+      let balance = await Balance.find();
+      res.status(200).json({
+        balance,
+      });
+    } catch (error) {
+      next(error);
+    }
+  },
+
   actionEdit: async (req, res) => {
     try {
       console.log(req.body);
