@@ -8,6 +8,6 @@ const { isLoginStudent } = require("../middleware/auth");
 /* GET home page. */
 
 router.put("/edit/:id", isLoginStudent, actionEdit);
-router.put("/", isLoginStudent, getBalance);
+router.get("/", isLoginStudent, getBalance);
 
 module.exports = router;
