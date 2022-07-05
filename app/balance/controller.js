@@ -3,7 +3,7 @@ const Balance = require("./model");
 module.exports = {
   getBalance: async (req, res, next) => {
     try {
-      let balance = await Balance.find();
+      let balance = await Balance.findById("62c21f5f7767e8ad4b04aad0");
       res.status(200).json({
         balance,
       });
