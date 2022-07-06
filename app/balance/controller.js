@@ -18,15 +18,10 @@ module.exports = {
       const { balance } = req.body;
       const { id } = req.params;
 
-      await Balance.findByIdAndUpdate(
-        {
-          _id: id,
-        },
-        {
-          balance,
-        }
-      );
-
+      await Balance.findByIdAndUpdate("62c21f5f7767e8ad4b04aad0", {
+        balance,
+      });
+      this.getBalance();
       req.flash("alertMessage", "Berhasil Ubah student");
       req.flash("alertStatus", "success");
       res.status(200).json({ balance });
