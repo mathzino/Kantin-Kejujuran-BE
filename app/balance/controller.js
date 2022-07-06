@@ -16,7 +16,6 @@ module.exports = {
     try {
       console.log(req.body);
       const { balance } = req.body;
-      const { id } = req.params;
 
       await Balance.findByIdAndUpdate("62c21f5f7767e8ad4b04aad0", {
         balance,
